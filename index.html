@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Üstbaş — Destek / Support</title>
+<style>
+  :root { color-scheme: light dark; --fg: #2b211c; --muted: #7a6d66; --bg: #faf6f0; --card: #ffffff; --accent: #c8553d; }
+  @media (prefers-color-scheme: dark) { :root { --fg: #f4ede4; --muted: #a39990; --bg: #151210; --card: #221d1a; --accent: #e07a5f; } }
+  body { margin: 0; font: 17px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", Helvetica, Arial, sans-serif; color: var(--fg); background: var(--bg); }
+  main { max-width: 720px; margin: 0 auto; padding: 32px 20px 64px; }
+  h1 { font: 600 32px/1.2 "New York", ui-serif, Georgia, serif; margin: 0 0 4px; }
+  h2 { font-size: 20px; margin: 28px 0 8px; }
+  .meta { color: var(--muted); font-size: 14px; }
+  .lang { display: flex; gap: 8px; margin: 20px 0 8px; }
+  .lang button { border: 0; background: var(--card); color: var(--fg); padding: 8px 14px; border-radius: 999px; font: inherit; cursor: pointer; }
+  .lang button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+  section[hidden] { display: none; }
+  a { color: var(--accent); }
+  .card { background: var(--card); border-radius: 16px; padding: 14px 18px; }
+  dt { font-weight: 600; margin-top: 14px; }
+  dd { margin: 4px 0 0; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Üstbaş</h1>
+  <div class="meta">Destek · Support · <a href="privacy.html">Gizlilik / Privacy</a></div>
+  <div class="lang">
+    <button id="btn-tr" aria-pressed="true" onclick="show('tr')">Türkçe</button>
+    <button id="btn-en" aria-pressed="false" onclick="show('en')">English</button>
+  </div>
+
+  <section id="tr">
+    <p class="card">Üstün başın hazır. Üstbaş, dolabındaki kıyafetlerden o günün saatlik hava durumuna, gideceğin yere ve sana göre kombin önerir. Yapay zekâ cihazında çalışır.</p>
+    <h2>Sık sorulanlar</h2>
+    <dl>
+      <dt>Öneriler neden "Kural motoru" etiketiyle geliyor?</dt>
+      <dd>Cihazında Apple Intelligence kapalıysa ya da model hazır değilse öneriler hava ve dolap kurallarıyla yapılır. Ayarlar › Apple Intelligence ve Siri'den açabilirsin.</dd>
+      <dt>Hava durumu yanlış yer için mi?</dt>
+      <dd>Bugün ekranında "Hava:" satırından bulunduğun yeri, ev şehrini ya da takvim etkinliğinin yerini seçebilirsin.</dd>
+      <dt>Bir parça hiç önerilmiyor.</dt>
+      <dd>Parça çamaşırda, arşivde ya da son günlerde giyilmiş olabilir; ya da sıcaklık/resmiyet etiketi o gün için uygun değildir. Parçaya dokunup etiketleri kontrol et.</dd>
+      <dt>Aboneliğimi nasıl iptal ederim?</dt>
+      <dd>Ayarlar › Üstbaş Pro › Aboneliği yönet ya da iPhone Ayarlar › [Adın] › Abonelikler.</dd>
+    </dl>
+    <h2>İletişim</h2>
+    <p>Soru, hata bildirimi ve öneriler için: <a href="mailto:caramel-creels3n@icloud.com?subject=%C3%9Cstba%C5%9F">caramel-creels3n@icloud.com</a></p>
+  </section>
+
+  <section id="en" hidden>
+    <p class="card">Üstbaş suggests outfits from your own wardrobe based on the day's hourly weather, where you're going and you. The AI runs on your device. (The app is in Turkish.)</p>
+    <h2>FAQ</h2>
+    <dl>
+      <dt>Why are suggestions labeled "Rule engine"?</dt>
+      <dd>If Apple Intelligence is off or the model isn't ready, suggestions come from weather and wardrobe rules. Turn it on in Settings › Apple Intelligence &amp; Siri.</dd>
+      <dt>The weather is for the wrong place.</dt>
+      <dd>On the Today screen, use the "Weather:" row to pick your current location, home city or the calendar event's location.</dd>
+      <dt>An item is never suggested.</dt>
+      <dd>It may be in the laundry, archived or worn recently, or its warmth/formality tags don't fit that day. Tap the item to check its tags.</dd>
+      <dt>How do I cancel my subscription?</dt>
+      <dd>Settings › Üstbaş Pro › Manage subscription, or iPhone Settings › [Your Name] › Subscriptions.</dd>
+    </dl>
+    <h2>Contact</h2>
+    <p>Questions, bug reports and suggestions: <a href="mailto:caramel-creels3n@icloud.com?subject=%C3%9Cstba%C5%9F">caramel-creels3n@icloud.com</a></p>
+  </section>
+</main>
+<script>
+  function show(lang) {
+    for (const l of ["tr", "en"]) {
+      document.getElementById(l).hidden = l !== lang;
+      document.getElementById("btn-" + l).setAttribute("aria-pressed", l === lang);
+    }
+    document.documentElement.lang = lang;
+  }
+  if (navigator.language && !navigator.language.startsWith("tr")) show("en");
+</script>
+</body>
+</html>
